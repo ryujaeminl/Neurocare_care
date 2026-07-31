@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <!-- 긴급 알림을 잠금화면 위로 즉시 띄우기 위한 권한. Android 14+는 기본 꺼짐 상태라
+         EmergencyNotifier.ensureFullScreenIntentPermission()에서 사용자 동의를 받아 설정 화면으로 보낸다. -->
+    <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT" />
+    <!-- 화면이 켜져 있고 다른 앱을 쓰는 중일 때도 긴급 알림을 즉시 띄우기 위한 권한. 전체화면
+         알림은 잠금화면에서만 자동으로 열리고, 평소엔 배너만 뜨고 안 열린다 - 특수 권한이라
+         설정 화면에서 별도 동의가 필요하다 (환자 앱의 MainActivity와 같은 패턴). -->
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:theme="@style/Theme.NeurocareGuardian"
+        android:usesCleartextTraffic="true">
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:launchMode="singleTask"
+            android:configChanges="orientation|screenSize|keyboardHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".emergency.EmergencyAlertActivity"
+            android:exported="false"
+            android:launchMode="singleTask"
+            android:showWhenLocked="true"
+            android:turnScreenOn="true"
+            android:excludeFromRecents="true" />
+
+    </application>
+
+</manifest>
