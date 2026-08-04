@@ -31,6 +31,8 @@ function toDateInput(value: string | Date | null | undefined) {
   return new Date(value).toISOString().slice(0, 10);
 }
 
+const fieldClass = "rounded-xl border border-surface-border bg-background px-3 py-2 outline-none focus:border-accent";
+
 /** 기억 추가/수정 폼. 보호자가 짧게만 써도 되도록 placeholder에 실제 예시를 넣는다. */
 export function MemoryForm({
   patientId,
@@ -87,13 +89,7 @@ export function MemoryForm({
     <form onSubmit={handleSubmit} className="flex flex-col gap-3 rounded-2xl border border-surface-border bg-surface p-5">
       <label className="flex flex-col gap-1 text-sm">
         제목
-        <input
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-          placeholder="손녀 돌잔치"
-          required
-          className="rounded-xl border border-surface-border bg-background px-3 py-2 outline-none focus:border-accent"
-        />
+        <input value={title} onChange={(e) => setTitle(e.target.value)} placeholder="손녀 돌잔치" required className={fieldClass} />
       </label>
 
       <label className="flex flex-col gap-1 text-sm">
@@ -104,18 +100,14 @@ export function MemoryForm({
           placeholder="2010년경 첫째 아들 결혼식, 제주도에서 진행"
           rows={3}
           required
-          className="rounded-xl border border-surface-border bg-background px-3 py-2 outline-none focus:border-accent"
+          className={fieldClass}
         />
       </label>
 
       <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
         <label className="flex flex-col gap-1 text-sm">
           관련 인물 (선택)
-          <select
-            value={familyMemberId}
-            onChange={(e) => setFamilyMemberId(e.target.value)}
-            className="rounded-xl border border-surface-border bg-background px-3 py-2 outline-none focus:border-accent"
-          >
+          <select value={familyMemberId} onChange={(e) => setFamilyMemberId(e.target.value)} className={fieldClass}>
             <option value="">선택 안 함</option>
             {familyMembers.map((member) => (
               <option key={member.id} value={member.id}>
@@ -126,23 +118,13 @@ export function MemoryForm({
         </label>
         <label className="flex flex-col gap-1 text-sm">
           시기 (선택, 모르면 비워두세요)
-          <input
-            type="date"
-            value={dateOccurred}
-            onChange={(e) => setDateOccurred(e.target.value)}
-            className="rounded-xl border border-surface-border bg-background px-3 py-2 outline-none focus:border-accent"
-          />
+          <input type="date" value={dateOccurred} onChange={(e) => setDateOccurred(e.target.value)} className={fieldClass} />
         </label>
       </div>
 
       <label className="flex flex-col gap-1 text-sm">
         태그 (쉼표로 구분, 선택)
-        <input
-          value={tags}
-          onChange={(e) => setTags(e.target.value)}
-          placeholder="결혼식, 제주도"
-          className="rounded-xl border border-surface-border bg-background px-3 py-2 outline-none focus:border-accent"
-        />
+        <input value={tags} onChange={(e) => setTags(e.target.value)} placeholder="결혼식, 제주도" className={fieldClass} />
       </label>
 
       {error && <p className="text-sm text-danger-foreground">{error}</p>}

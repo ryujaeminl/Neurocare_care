@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import { DashboardLayoutEditor } from "@/components/guardian/DashboardLayoutEditor";
 import { PushOptIn } from "@/components/guardian/PushOptIn";
@@ -95,6 +96,21 @@ export default function SettingsPage() {
 
   return (
     <div className="flex max-w-xl flex-col gap-8">
+      <div className="flex gap-2">
+        <Link
+          href="/link"
+          className="flex-1 rounded-2xl border border-surface-border bg-surface px-4 py-3 text-center text-sm font-medium hover:border-accent/50"
+        >
+          🔗 환자 연동
+        </Link>
+        <Link
+          href="/account"
+          className="flex-1 rounded-2xl border border-surface-border bg-surface px-4 py-3 text-center text-sm font-medium hover:border-accent/50"
+        >
+          👤 내 계정
+        </Link>
+      </div>
+
       <h2 className="text-lg font-semibold">알림 설정</h2>
 
       <PushOptIn />

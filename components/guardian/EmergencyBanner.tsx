@@ -43,7 +43,7 @@ export function EmergencyBanner() {
         {events.map((event) => (
           <Link
             key={event.id}
-            href={`/emergency/${event.id}`}
+            href="/emergency"
             className="flex items-center justify-between gap-3 text-sm font-medium text-rose-100"
           >
             <span>

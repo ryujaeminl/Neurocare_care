@@ -21,6 +21,8 @@ interface PhotoUploaderProps {
   onUploaded: (photo: UploadedPhoto) => void;
 }
 
+const fieldClass = "rounded-xl border border-surface-border bg-background px-3 py-2 outline-none focus:border-accent";
+
 /** 드래그 앤 드롭 또는 파일 선택으로 사진을 올린다. 업로드 시 인물 태깅은 선택 사항이다. */
 export function PhotoUploader({ patientId, familyMembers, onUploaded }: PhotoUploaderProps) {
   const [familyMemberId, setFamilyMemberId] = useState("");
@@ -60,11 +62,7 @@ export function PhotoUploader({ patientId, familyMembers, onUploaded }: PhotoUpl
       <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
         <label className="flex flex-col gap-1 text-sm">
           관련 인물 (선택)
-          <select
-            value={familyMemberId}
-            onChange={(e) => setFamilyMemberId(e.target.value)}
-            className="rounded-xl border border-surface-border bg-background px-3 py-2 outline-none focus:border-accent"
-          >
+          <select value={familyMemberId} onChange={(e) => setFamilyMemberId(e.target.value)} className={fieldClass}>
             <option value="">선택 안 함</option>
             {familyMembers.map((member) => (
               <option key={member.id} value={member.id}>
@@ -75,12 +73,7 @@ export function PhotoUploader({ patientId, familyMembers, onUploaded }: PhotoUpl
         </label>
         <label className="flex flex-col gap-1 text-sm">
           설명 (선택)
-          <input
-            value={caption}
-            onChange={(e) => setCaption(e.target.value)}
-            placeholder="손녀 돌잔치"
-            className="rounded-xl border border-surface-border bg-background px-3 py-2 outline-none focus:border-accent"
-          />
+          <input value={caption} onChange={(e) => setCaption(e.target.value)} placeholder="손녀 돌잔치" className={fieldClass} />
         </label>
       </div>
 

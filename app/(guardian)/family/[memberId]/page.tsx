@@ -146,17 +146,19 @@ export default function FamilyMemberDetailPage() {
         </div>
 
         {showMemoryForm && (
-          <MemoryForm
-            patientId={member.patientId}
-            familyMembers={siblings}
-            defaultFamilyMemberId={member.id}
-            initial={editingMemory ?? undefined}
-            onSaved={handleMemorySaved}
-            onCancel={() => {
-              setShowMemoryForm(false);
-              setEditingMemory(null);
-            }}
-          />
+          <div className="mb-3">
+            <MemoryForm
+              patientId={member.patientId}
+              familyMembers={siblings}
+              defaultFamilyMemberId={member.id}
+              initial={editingMemory ?? undefined}
+              onSaved={handleMemorySaved}
+              onCancel={() => {
+                setShowMemoryForm(false);
+                setEditingMemory(null);
+              }}
+            />
+          </div>
         )}
 
         {member.memories.length === 0 ? (

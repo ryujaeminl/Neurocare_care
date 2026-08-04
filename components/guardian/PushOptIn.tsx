@@ -79,9 +79,7 @@ export function PushOptIn() {
           >
             알림 받기
           </button>
-          {status === "denied" && (
-            <p className="text-sm text-danger-foreground">브라우저 알림 권한이 거부되어 있습니다.</p>
-          )}
+          {status === "denied" && <p className="text-sm text-danger-foreground">브라우저 알림 권한이 거부되어 있습니다.</p>}
         </>
       )}
       {error && <p className="text-sm text-danger-foreground">{error}</p>}

@@ -16,6 +16,8 @@ function toDateInput(value: Date | string | null | undefined) {
   return new Date(value).toISOString().slice(0, 10);
 }
 
+const fieldClass = "rounded-xl border border-surface-border bg-background px-3 py-2 outline-none focus:border-accent";
+
 /** 복용약 추가/수정 폼. initial이 있으면 수정 모드로 PATCH, 없으면 POST한다. */
 export function MedicationForm({ patientId, initial, onSaved, onCancel }: MedicationFormProps) {
   const [name, setName] = useState(initial?.name ?? "");
@@ -79,23 +81,11 @@ export function MedicationForm({ patientId, initial, onSaved, onCancel }: Medica
       <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
         <label className="flex flex-col gap-1 text-sm">
           약 이름
-          <input
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            placeholder="혈압약"
-            required
-            className="rounded-xl border border-surface-border bg-background px-3 py-2 outline-none focus:border-accent"
-          />
+          <input value={name} onChange={(e) => setName(e.target.value)} placeholder="혈압약" required className={fieldClass} />
         </label>
         <label className="flex flex-col gap-1 text-sm">
           용량
-          <input
-            value={dosage}
-            onChange={(e) => setDosage(e.target.value)}
-            placeholder="1정"
-            required
-            className="rounded-xl border border-surface-border bg-background px-3 py-2 outline-none focus:border-accent"
-          />
+          <input value={dosage} onChange={(e) => setDosage(e.target.value)} placeholder="1정" required className={fieldClass} />
         </label>
       </div>
 
@@ -106,23 +96,17 @@ export function MedicationForm({ patientId, initial, onSaved, onCancel }: Medica
           onChange={(e) => setFrequency(e.target.value)}
           placeholder="아침/저녁 식후"
           required
-          className="rounded-xl border border-surface-border bg-background px-3 py-2 outline-none focus:border-accent"
+          className={fieldClass}
         />
       </label>
 
       <div className="flex flex-col gap-2 text-sm">
-        <span>
-          알림 시각 (선택){" "}
-          <span className="text-muted-foreground">- 설정에서 복약 알림을 켠 보호자에게 이 시각마다 발송</span>
+        <span className="text-muted-foreground">
+          알림 시각 (선택) - 설정에서 복약 알림을 켠 보호자에게 이 시각마다 발송
         </span>
         {reminderTimes.map((time, index) => (
           <div key={index} className="flex items-center gap-2">
-            <input
-              type="time"
-              value={time}
-              onChange={(e) => updateReminderTime(index, e.target.value)}
-              className="rounded-xl border border-surface-border bg-background px-3 py-2 outline-none focus:border-accent"
-            />
+            <input type="time" value={time} onChange={(e) => updateReminderTime(index, e.target.value)} className={fieldClass} />
             <button
               type="button"
               onClick={() => removeReminderTime(index)}
@@ -144,33 +128,17 @@ export function MedicationForm({ patientId, initial, onSaved, onCancel }: Medica
       <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
         <label className="flex flex-col gap-1 text-sm">
           시작일
-          <input
-            type="date"
-            value={startDate}
-            onChange={(e) => setStartDate(e.target.value)}
-            required
-            className="rounded-xl border border-surface-border bg-background px-3 py-2 outline-none focus:border-accent"
-          />
+          <input type="date" value={startDate} onChange={(e) => setStartDate(e.target.value)} required className={fieldClass} />
         </label>
         <label className="flex flex-col gap-1 text-sm">
           종료일 (선택)
-          <input
-            type="date"
-            value={endDate}
-            onChange={(e) => setEndDate(e.target.value)}
-            className="rounded-xl border border-surface-border bg-background px-3 py-2 outline-none focus:border-accent"
-          />
+          <input type="date" value={endDate} onChange={(e) => setEndDate(e.target.value)} className={fieldClass} />
         </label>
       </div>
 
       <label className="flex flex-col gap-1 text-sm">
         메모 (선택)
-        <textarea
-          value={notes}
-          onChange={(e) => setNotes(e.target.value)}
-          rows={2}
-          className="rounded-xl border border-surface-border bg-background px-3 py-2 outline-none focus:border-accent"
-        />
+        <textarea value={notes} onChange={(e) => setNotes(e.target.value)} rows={2} className={fieldClass} />
       </label>
 
       {error && <p className="text-sm text-danger-foreground">{error}</p>}

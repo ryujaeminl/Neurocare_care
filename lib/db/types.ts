@@ -123,11 +123,11 @@ export function meetsAlertThreshold(mood: Mood, threshold: AlertThreshold): bool
   return level >= 3;
 }
 
-/** 기분 값을 화면에 표시할 한국어 라벨과 색으로 옮긴다. */
+/** 기분 값을 화면에 표시할 한국어 라벨과 색으로 옮긴다. 밝은(Serene Care) 배경 기준 색상. */
 export const MOOD_LABELS: Record<Mood, { label: string; emoji: string; className: string }> = {
-  positive: { label: "긍정적", emoji: "😊", className: "text-emerald-300" },
-  neutral: { label: "평온함", emoji: "🙂", className: "text-sky-300" },
-  anxious: { label: "불안함", emoji: "😟", className: "text-amber-300" },
-  confused: { label: "혼란스러움", emoji: "😕", className: "text-orange-300" },
-  sad: { label: "가라앉음", emoji: "😔", className: "text-rose-300" },
+  positive: { label: "긍정적", emoji: "😊", className: "text-emerald-600" },
+  neutral: { label: "평온함", emoji: "🙂", className: "text-sky-600" },
+  anxious: { label: "불안함", emoji: "😟", className: "text-amber-600" },
+  confused: { label: "혼란스러움", emoji: "😕", className: "text-orange-600" },
+  sad: { label: "가라앉음", emoji: "😔", className: "text-rose-600" },
 };

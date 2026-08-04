@@ -119,7 +119,7 @@ export default function MedicationsPage() {
           {medications.map((medication) => (
             <div
               key={medication.id}
-              className={`flex items-center justify-between rounded-2xl border p-4 ${
+              className={`flex items-center gap-4 rounded-2xl border p-4 ${
                 isEnded(medication.endDate)
                   ? "border-surface-border bg-surface opacity-60"
                   : isEndingSoon(medication.endDate)
@@ -127,7 +127,10 @@ export default function MedicationsPage() {
                     : "border-surface-border bg-surface"
               }`}
             >
-              <div>
+              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-sky-500/20 text-lg">
+                💊
+              </div>
+              <div className="flex-1">
                 <p className="font-semibold">
                   {medication.name} · {medication.dosage}
                 </p>
