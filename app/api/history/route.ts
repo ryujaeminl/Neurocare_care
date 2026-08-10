@@ -74,7 +74,9 @@ export async function GET(request: NextRequest) {
     const sessions = await prisma.conversationSession.findMany({
       where: { patientId },
       orderBy: { startedAt: "desc" },
-      take: 60,
+      // 하루 1세션 구조라 이 정도면 사실상 "전체 기록"이다 - components/guardian/ConversationHistorySection.tsx가
+      // 여기서 받은 걸 최근 10일/전체로 나눠서 보여준다.
+      take: 500,
       include: {
         mood: { select: { mood: true, confidence: true, summary: true } },
         _count: { select: { turns: true } },

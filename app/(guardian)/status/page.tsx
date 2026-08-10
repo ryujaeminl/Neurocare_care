@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import type { Medication } from "@prisma/client";
+import { ConversationHistorySection } from "@/components/guardian/ConversationHistorySection";
 import { MoodChart, type MoodPoint } from "@/components/MoodChart";
 import { useLinkedPatients } from "@/hooks/useLinkedPatients";
 import { MOOD_LABELS, MOOD_VALUES, isMood, type Mood } from "@/lib/db/types";
@@ -209,34 +210,7 @@ export default function StatusPage() {
             <MoodChart points={moodPoints} />
           </section>
 
-          {/* 데일리 로그 - 가장 최근 대화의 발화 타임라인 */}
-          <section>
-            <h2 className="mb-3 text-lg font-semibold">데일리 로그</h2>
-            {!latestDetail || latestDetail.turns.length === 0 ? (
-              <p className="text-muted-foreground">아직 저장된 대화가 없습니다.</p>
-            ) : (
-              <div className="flex flex-col gap-3">
-                {latestDetail.turns.map((turn) => (
-                  <div
-                    key={turn.id}
-                    className={`rounded-xl border p-4 ${
-                      turn.role === "assistant" ? "border-accent/30 bg-accent/10" : "border-surface-border bg-background"
-                    }`}
-                  >
-                    <div className="mb-1 flex items-center justify-between">
-                      <h4 className="text-xs font-medium text-muted-foreground">
-                        {turn.role === "assistant" ? "AI" : "환자"}
-                      </h4>
-                      <span className="text-xs text-muted-foreground">
-                        {new Date(turn.createdAt).toLocaleTimeString("ko-KR", { hour: "numeric", minute: "2-digit" })}
-                      </span>
-                    </div>
-                    <p className="text-sm">{turn.text}</p>
-                  </div>
-                ))}
-              </div>
-            )}
-          </section>
+          {selectedId && <ConversationHistorySection key={selectedId} patientId={selectedId} />}
         </>
       )}
     </div>

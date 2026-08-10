@@ -87,20 +87,12 @@ export default function FamilyPage() {
     <div className="flex flex-col gap-6">
       <PatientSelector patients={patients} selectedId={selectedId} onSelect={setSelectedId} />
 
-      <div className="flex gap-2">
-        <Link
-          href="/photos"
-          className="flex-1 rounded-2xl border border-surface-border bg-surface px-4 py-3 text-center text-sm font-medium hover:border-accent/50"
-        >
-          📷 사진첩
-        </Link>
-        <Link
-          href="/messages"
-          className="flex-1 rounded-2xl border border-surface-border bg-surface px-4 py-3 text-center text-sm font-medium hover:border-accent/50"
-        >
-          💬 가족 메시지
-        </Link>
-      </div>
+      <Link
+        href="/photos"
+        className="block rounded-2xl border border-surface-border bg-surface px-4 py-3 text-center text-sm font-medium hover:border-accent/50"
+      >
+        📷 사진첩
+      </Link>
 
       <div className="flex items-center justify-between">
         <h2 className="text-lg font-semibold">가족 구성원</h2>
