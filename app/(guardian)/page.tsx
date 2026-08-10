@@ -22,8 +22,8 @@ function isActive(endDate: Date | string | null) {
   return !endDate || new Date(endDate).getTime() >= Date.now();
 }
 
-function formatTime(iso: string) {
-  return new Date(iso).toLocaleTimeString("ko-KR", { hour: "numeric", minute: "2-digit" });
+function formatDate(iso: string) {
+  return new Date(iso).toLocaleDateString("ko-KR", { month: "long", day: "numeric", weekday: "short" });
 }
 
 // 로그인/보호자 role 검증은 app/(guardian)/layout.tsx에서 이미 끝났다.
@@ -146,7 +146,7 @@ export default function GuardianHomePage() {
             </div>
             {members.length === 0 ? (
               <Link
-                href="/photos"
+                href="/family"
                 className="rounded-2xl border border-dashed border-surface-border bg-surface p-6 text-center text-muted-foreground transition hover:border-accent/50"
               >
                 등록된 가족이 없습니다. 눌러서 추가하세요.
@@ -223,7 +223,7 @@ export default function GuardianHomePage() {
                     href="/status"
                     className="flex items-center gap-4 rounded-xl border border-surface-border bg-surface p-4 transition hover:border-accent/50"
                   >
-                    <div className="w-16 text-xs text-muted-foreground">{formatTime(session.startedAt)}</div>
+                    <div className="w-20 text-xs text-muted-foreground">{formatDate(session.startedAt)}</div>
                     <div className="h-2 w-2 rounded-full bg-muted-foreground" />
                     <div className="flex-1">대화 {session.turnCount}번</div>
                   </Link>
