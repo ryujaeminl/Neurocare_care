@@ -12,8 +12,8 @@ import { usePathname } from "next/navigation";
 const ITEMS = [
   { href: "/", emoji: "🏠", label: "홈" },
   { href: "/status", emoji: "📊", label: "케어" },
-  { href: "/family", emoji: "👪", label: "가족" },
   { href: "/messages", emoji: "💬", label: "메시지" },
+  { href: "/family", emoji: "👪", label: "가족" },
   { href: "/settings", emoji: "⚙️", label: "설정" },
 ] as const;
 

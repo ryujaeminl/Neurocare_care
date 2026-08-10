@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import type { Medication } from "@prisma/client";
+import { ConversationHistorySection } from "@/components/guardian/ConversationHistorySection";
 import { useLinkedPatients } from "@/hooks/useLinkedPatients";
 import { MOOD_LABELS, isMood } from "@/lib/db/types";
 
@@ -12,18 +13,8 @@ interface FamilyMemberOption {
   photos: { url: string }[];
 }
 
-interface HistorySession {
-  id: string;
-  startedAt: string;
-  turnCount: number;
-}
-
 function isActive(endDate: Date | string | null) {
   return !endDate || new Date(endDate).getTime() >= Date.now();
-}
-
-function formatDate(iso: string) {
-  return new Date(iso).toLocaleDateString("ko-KR", { month: "long", day: "numeric", weekday: "short" });
 }
 
 // 로그인/보호자 role 검증은 app/(guardian)/layout.tsx에서 이미 끝났다.
@@ -31,19 +22,16 @@ export default function GuardianHomePage() {
   const { patients, selectedId, setSelectedId, loading, error } = useLinkedPatients();
   const [medications, setMedications] = useState<Medication[]>([]);
   const [members, setMembers] = useState<FamilyMemberOption[]>([]);
-  const [sessions, setSessions] = useState<HistorySession[]>([]);
 
   useEffect(() => {
     if (!selectedId) return;
     Promise.all([
       fetch(`/api/guardian/medications?patientId=${selectedId}`).then((r) => r.json()),
       fetch(`/api/guardian/family?patientId=${selectedId}`).then((r) => r.json()),
-      fetch(`/api/history?patientId=${selectedId}`).then((r) => r.json()),
     ])
-      .then(([medsData, familyData, historyData]) => {
+      .then(([medsData, familyData]) => {
         setMedications(medsData.medications ?? []);
         setMembers(familyData.members ?? []);
-        setSessions((historyData.sessions ?? []).slice(0, 5));
       })
       .catch(() => {});
   }, [selectedId]);
@@ -210,27 +198,7 @@ export default function GuardianHomePage() {
             )}
           </section>
 
-          {/* 최근 활동 로그 */}
-          <section className="flex flex-col gap-3">
-            <h3 className="text-lg font-semibold">최근 대화 기록</h3>
-            {sessions.length === 0 ? (
-              <p className="text-muted-foreground">아직 저장된 대화가 없습니다.</p>
-            ) : (
-              <div className="flex flex-col gap-2">
-                {sessions.map((session) => (
-                  <Link
-                    key={session.id}
-                    href="/status"
-                    className="flex items-center gap-4 rounded-xl border border-surface-border bg-surface p-4 transition hover:border-accent/50"
-                  >
-                    <div className="w-20 text-xs text-muted-foreground">{formatDate(session.startedAt)}</div>
-                    <div className="h-2 w-2 rounded-full bg-muted-foreground" />
-                    <div className="flex-1">대화 {session.turnCount}번</div>
-                  </Link>
-                ))}
-              </div>
-            )}
-          </section>
+          <ConversationHistorySection key={selectedId} patientId={selectedId} />
         </>
       )}
     </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { MOOD_LABELS, isMood } from "@/lib/db/types";
 
 interface HistorySessionSummary {
@@ -24,29 +24,20 @@ interface SessionDetail {
   mood: { mood: string; confidence: number; summary: string; notableMoments: string[] } | null;
 }
 
-const RECENT_DAYS = 10;
-const RECENT_DAYS_MS = RECENT_DAYS * 24 * 60 * 60 * 1000;
-
 function formatDate(iso: string) {
   return new Date(iso).toLocaleDateString("ko-KR", { month: "long", day: "numeric", weekday: "short" });
 }
 
 /**
- * 하루 1세션 구조라 세션 목록 = 날짜별 대화 기록이다. 기본은 최근 10일만 보여주고
- * (스크롤로 훑어보기), "전체 기록 보기"를 누르면 서버가 내려준 전체(최대 500일치,
- * app/api/history/route.ts 참고)를 다 보여준다 - 턴 자체는 지운 적이 없으니 항상
- * 전부 저장돼 있고, 여기서는 얼마나 "보여줄지"만 조절한다.
+ * 하루 1세션 구조라 세션 목록 = 날짜별 대화 기록이다. 저장된 전체 기록(최대 500일치,
+ * app/api/history/route.ts 참고)을 처음부터 다 보여주고, 스크롤로 훑어본다.
  */
 export function ConversationHistorySection({ patientId }: { patientId: string }) {
   const [sessions, setSessions] = useState<HistorySessionSummary[]>([]);
   const [loading, setLoading] = useState(true);
-  const [showAll, setShowAll] = useState(false);
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [detail, setDetail] = useState<SessionDetail | null>(null);
   const [detailLoading, setDetailLoading] = useState(false);
-  // 렌더 중에 Date.now()를 부르면 안 되니(react-hooks/purity), "최근 10일" 기준선은
-  // 데이터를 불러온 시점(effect 안)에 한 번만 계산해서 상태로 들고 있는다.
-  const [recentCutoff, setRecentCutoff] = useState(0);
 
   async function openSession(sessionId: string) {
     setSelectedId(sessionId);
@@ -70,7 +61,6 @@ export function ConversationHistorySection({ patientId }: { patientId: string })
         if (cancelled) return;
         const list: HistorySessionSummary[] = data.sessions ?? [];
         setSessions(list);
-        setRecentCutoff(Date.now() - RECENT_DAYS_MS);
         if (list[0]) void openSession(list[0].id);
       })
       .finally(() => {
@@ -83,26 +73,9 @@ export function ConversationHistorySection({ patientId }: { patientId: string })
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [patientId]);
 
-  const visibleSessions = useMemo(
-    () => (showAll ? sessions : sessions.filter((s) => new Date(s.startedAt).getTime() >= recentCutoff)),
-    [sessions, showAll, recentCutoff],
-  );
-  const hiddenCount = sessions.length - visibleSessions.length;
-
   return (
     <section className="flex flex-col gap-3">
-      <div className="flex items-center justify-between">
-        <h2 className="text-lg font-semibold">대화 기록</h2>
-        {!showAll && hiddenCount > 0 && (
-          <button
-            type="button"
-            onClick={() => setShowAll(true)}
-            className="text-sm font-medium text-accent hover:underline"
-          >
-            전체 기록 보기 (총 {sessions.length}일)
-          </button>
-        )}
-      </div>
+      <h2 className="text-lg font-semibold">대화 기록</h2>
 
       {loading ? (
         <p className="text-muted-foreground">불러오는 중...</p>
@@ -111,7 +84,7 @@ export function ConversationHistorySection({ patientId }: { patientId: string })
       ) : (
         <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
           <ul className="flex max-h-[420px] flex-col gap-2 overflow-y-auto pr-1">
-            {visibleSessions.map((session) => {
+            {sessions.map((session) => {
               const mood = session.mood && isMood(session.mood.mood) ? session.mood.mood : null;
               const active = session.id === selectedId;
               return (
