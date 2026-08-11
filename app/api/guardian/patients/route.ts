@@ -16,6 +16,7 @@ export async function GET() {
           select: {
             id: true,
             name: true,
+            dementiaStage: true,
             sessions: {
               orderBy: { startedAt: "desc" },
               take: 1,
@@ -33,6 +34,7 @@ export async function GET() {
       patients: links.map(({ patient }) => ({
         id: patient.id,
         name: patient.name,
+        dementiaStage: patient.dementiaStage,
         lastSession: patient.sessions[0] ?? null,
       })),
     });

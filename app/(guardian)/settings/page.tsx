@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { DashboardLayoutEditor } from "@/components/guardian/DashboardLayoutEditor";
+import { DementiaStageSettings } from "@/components/guardian/DementiaStageSettings";
 import { PushOptIn } from "@/components/guardian/PushOptIn";
 import { useLinkedPatients } from "@/hooks/useLinkedPatients";
 import {
@@ -114,6 +115,8 @@ export default function SettingsPage() {
       <h2 className="text-lg font-semibold">알림 설정</h2>
 
       <PushOptIn />
+
+      <DementiaStageSettings patients={patients} />
 
       <section className="flex flex-col gap-4 rounded-xl border border-surface-border bg-surface p-5">
         <label className="flex items-center justify-between gap-4">

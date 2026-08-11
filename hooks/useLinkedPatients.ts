@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 export interface LinkedPatient {
   id: string;
   name: string;
+  dementiaStage: string | null;
   lastSession: {
     startedAt: string;
     mood: { mood: string; summary: string } | null;
