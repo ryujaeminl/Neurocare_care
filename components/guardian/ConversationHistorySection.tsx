@@ -55,13 +55,14 @@ export function ConversationHistorySection({ patientId }: { patientId: string })
   useEffect(() => {
     let cancelled = false;
 
+    // 목록만 먼저 보여준다 - 가장 최근 세션의 전체 대화까지 미리 열어 홈 화면 로딩을
+    // 늦추던 걸(요청하지도 않은 세션 상세 fetch) 없앴다. 상세는 사용자가 날짜를
+    // 클릭할 때(openSession)만 가져온다.
     fetch(`/api/history?patientId=${patientId}`)
       .then((r) => r.json())
       .then((data) => {
         if (cancelled) return;
-        const list: HistorySessionSummary[] = data.sessions ?? [];
-        setSessions(list);
-        if (list[0]) void openSession(list[0].id);
+        setSessions(data.sessions ?? []);
       })
       .finally(() => {
         if (!cancelled) setLoading(false);
@@ -70,7 +71,6 @@ export function ConversationHistorySection({ patientId }: { patientId: string })
     return () => {
       cancelled = true;
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [patientId]);
 
   return (
@@ -112,6 +112,7 @@ export function ConversationHistorySection({ patientId }: { patientId: string })
           </ul>
 
           <div className="max-h-[420px] overflow-y-auto rounded-xl border border-surface-border bg-surface p-4">
+            {!selectedId && <p className="text-muted-foreground">날짜를 선택하면 대화 내용을 볼 수 있어요.</p>}
             {detailLoading && <p className="text-muted-foreground">불러오는 중...</p>}
             {!detailLoading && detail && (
               <div className="flex flex-col gap-3">
