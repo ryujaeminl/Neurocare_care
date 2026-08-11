@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.provider.Settings
 import android.util.Log
 import android.webkit.ConsoleMessage
+import android.webkit.JavascriptInterface
 import android.webkit.WebChromeClient
 import android.webkit.WebResourceError
 import android.webkit.WebResourceRequest
@@ -40,6 +41,26 @@ class MainActivity : AppCompatActivity() {
             // 결과와 무관하게 웹앱은 그대로 띄운다 - 알림은 부가 기능이라 거부해도 앱 사용엔 지장 없다.
             webView.loadUrl(BuildConfig.WEBAPP_BASE_URL)
         }
+
+    /**
+     * EmergencyBanner.tsx가 이미 20초마다 /api/emergency를 로그인 세션으로 폴링하고 있다 -
+     * 그 결과를 그대로 받아 전체화면 알림만 네이티브에서 띄운다. FCM 없이도 되는 이유:
+     * 웹이 이미 인증된 폴링을 하고 있으니 그걸 재사용하면 되고, 새로 인증을 붙여야 하는
+     * 별도 백그라운드 서비스를 안 만들어도 된다.
+     */
+    private inner class WebAppBridge {
+        @JavascriptInterface
+        fun showEmergencyAlert(eventId: String, patientName: String, timeText: String) {
+            runOnUiThread {
+                EmergencyNotifier.showEmergencyAlert(
+                    this@MainActivity,
+                    eventId,
+                    "$patientName 어르신 SOS",
+                    timeText,
+                )
+            }
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -85,6 +106,7 @@ class MainActivity : AppCompatActivity() {
             domStorageEnabled = true
             mixedContentMode = WebSettings.MIXED_CONTENT_ALWAYS_ALLOW
         }
+        webView.addJavascriptInterface(WebAppBridge(), "Android")
 
         // WebView 안에서 난 오류는 밖에서 보이지 않는다. 화면이 빈 채로 멈췄을 때 원인을
         // 바로 알 수 있도록 로딩 실패와 JS 오류를 토스트와 logcat 양쪽에 드러낸다.
