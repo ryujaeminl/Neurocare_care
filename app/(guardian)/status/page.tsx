@@ -98,13 +98,13 @@ export default function StatusPage() {
       <div className="flex gap-2">
         <Link
           href="/medications"
-          className="flex-1 rounded-2xl border border-surface-border bg-surface px-4 py-3 text-center text-sm font-medium hover:border-accent/50"
+          className="flex-1 rounded-xl border border-surface-border bg-surface px-4 py-3 text-center text-sm font-medium hover:border-accent/50"
         >
           💊 복용약 관리
         </Link>
         <Link
           href="/emergency"
-          className="flex-1 rounded-2xl border border-surface-border bg-surface px-4 py-3 text-center text-sm font-medium hover:border-accent/50"
+          className="flex-1 rounded-xl border border-surface-border bg-surface px-4 py-3 text-center text-sm font-medium hover:border-accent/50"
         >
           🚨 긴급 이력
         </Link>
@@ -116,7 +116,7 @@ export default function StatusPage() {
             key={patient.id}
             type="button"
             onClick={() => setSelectedId(patient.id)}
-            className={`rounded-2xl border px-5 py-3 text-left font-semibold transition ${
+            className={`rounded-xl border px-5 py-3 text-left font-semibold transition ${
               selectedId === patient.id
                 ? "border-accent bg-accent/10"
                 : "border-surface-border bg-surface hover:border-accent/50"
@@ -140,7 +140,7 @@ export default function StatusPage() {
                 return (
                   <div
                     key={moodValue}
-                    className={`flex flex-col items-center rounded-2xl border p-3 transition ${
+                    className={`flex flex-col items-center rounded-xl border p-3 transition ${
                       active ? "border-accent bg-accent/10" : "border-surface-border bg-surface opacity-50"
                     }`}
                   >
@@ -156,7 +156,7 @@ export default function StatusPage() {
 
           {/* AI 대화 요약 + 복용약 현황 */}
           <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
-            <div className="rounded-2xl bg-accent/10 border border-accent/30 p-6 md:col-span-2">
+            <div className="rounded-xl bg-accent/10 border border-accent/30 p-6 md:col-span-2">
               <div className="mb-4 flex items-center gap-2">
                 <span>✨</span>
                 <h3 className="text-lg font-semibold">AI 대화 요약</h3>
@@ -179,7 +179,7 @@ export default function StatusPage() {
               )}
             </div>
 
-            <div className="flex flex-col justify-between rounded-2xl border border-surface-border bg-surface p-6">
+            <div className="flex flex-col justify-between rounded-xl border border-surface-border bg-surface p-6">
               <div>
                 <h3 className="mb-3 text-xs font-medium text-muted-foreground">복용약 현황</h3>
                 {activeMeds.length === 0 ? (
@@ -202,7 +202,7 @@ export default function StatusPage() {
           </div>
 
           {/* 기분 추이 */}
-          <section className="rounded-2xl border border-surface-border bg-surface p-6">
+          <section className="rounded-xl border border-surface-border bg-surface p-6">
             <h3 className="mb-1 text-lg font-semibold">기분 추이</h3>
             <p className="mb-4 text-xs text-muted-foreground">
               의학적 진단이 아니라 대화에서 드러난 정서적 톤을 참고용으로 정리한 것입니다.

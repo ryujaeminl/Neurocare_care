@@ -27,7 +27,7 @@ export default function AccountPage() {
       </header>
 
       <main className="mx-auto w-full max-w-md flex-1 px-6 py-8">
-        <div className="rounded-2xl border border-surface-border bg-surface p-5">
+        <div className="rounded-xl border border-surface-border bg-surface p-5">
           <p className="text-lg font-semibold">{session?.user?.name}</p>
           <p className="text-sm text-muted-foreground">{session?.user?.email}</p>
           <p className="mt-2 text-sm text-muted-foreground">보호자 계정</p>
@@ -35,7 +35,7 @@ export default function AccountPage() {
 
         <Link
           href="/link"
-          className="mt-4 block rounded-2xl border border-surface-border bg-surface p-5 transition hover:border-accent/50"
+          className="mt-4 block rounded-xl border border-surface-border bg-surface p-5 transition hover:border-accent/50"
         >
           <p className="font-semibold">환자 연동하기</p>
           <p className="mt-1 text-sm text-muted-foreground">초대 코드로 환자를 추가합니다.</p>

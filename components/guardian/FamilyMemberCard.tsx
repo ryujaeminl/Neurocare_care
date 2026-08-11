@@ -15,7 +15,7 @@ export function FamilyMemberCard({ member }: { member: FamilyMemberSummary }) {
   return (
     <Link
       href={`/family/${member.id}`}
-      className="flex w-40 shrink-0 flex-col items-center gap-3 rounded-2xl border border-surface-border bg-surface p-5 text-center transition hover:border-accent/50"
+      className="flex w-40 shrink-0 flex-col items-center gap-3 rounded-xl border border-surface-border bg-surface p-5 text-center transition hover:border-accent/50"
     >
       {photo ? (
         // eslint-disable-next-line @next/next/no-img-element

@@ -89,7 +89,7 @@ export default function FamilyPage() {
 
       <Link
         href="/photos"
-        className="block rounded-2xl border border-surface-border bg-surface px-4 py-3 text-center text-sm font-medium hover:border-accent/50"
+        className="block rounded-xl border border-surface-border bg-surface px-4 py-3 text-center text-sm font-medium hover:border-accent/50"
       >
         📷 사진첩
       </Link>
@@ -108,7 +108,7 @@ export default function FamilyPage() {
       </div>
 
       {showForm && (
-        <form onSubmit={handleAdd} className="flex flex-col gap-3 rounded-2xl border border-surface-border bg-surface p-5">
+        <form onSubmit={handleAdd} className="flex flex-col gap-3 rounded-xl border border-surface-border bg-surface p-5">
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
             <input
               value={name}

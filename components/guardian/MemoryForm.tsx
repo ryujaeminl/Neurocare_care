@@ -86,7 +86,7 @@ export function MemoryForm({
   }
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-3 rounded-2xl border border-surface-border bg-surface p-5">
+    <form onSubmit={handleSubmit} className="flex flex-col gap-3 rounded-xl border border-surface-border bg-surface p-5">
       <label className="flex flex-col gap-1 text-sm">
         제목
         <input value={title} onChange={(e) => setTitle(e.target.value)} placeholder="손녀 돌잔치" required className={fieldClass} />

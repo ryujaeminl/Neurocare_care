@@ -63,10 +63,10 @@ export function PushOptIn() {
   if (!VAPID_PUBLIC_KEY || unsupported) return null;
 
   return (
-    <div className="flex flex-col gap-2 rounded-2xl border border-surface-border bg-surface p-5">
+    <div className="flex flex-col gap-2 rounded-xl border border-surface-border bg-surface p-5">
       <h3 className="font-semibold">브라우저 알림</h3>
       {status === "subscribed" ? (
-        <p className="text-sm text-emerald-300">이 브라우저에서 알림을 받을 수 있어요.</p>
+        <p className="text-sm text-emerald-700">이 브라우저에서 알림을 받을 수 있어요.</p>
       ) : (
         <>
           <p className="text-sm text-muted-foreground">

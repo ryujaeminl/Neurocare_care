@@ -18,7 +18,7 @@ export function PatientSelector({ patients, selectedId, onSelect }: PatientSelec
             key={patient.id}
             type="button"
             onClick={() => onSelect(patient.id)}
-            className={`rounded-2xl border px-5 py-3 text-left transition ${
+            className={`rounded-xl border px-5 py-3 text-left transition ${
               selectedId === patient.id
                 ? "border-accent bg-accent/10"
                 : "border-surface-border bg-surface hover:border-accent/50"

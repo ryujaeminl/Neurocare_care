@@ -47,7 +47,7 @@ export default function GuardianHomePage() {
 
   if (patients.length === 0) {
     return (
-      <div className="rounded-2xl border border-surface-border bg-surface p-6 text-center">
+      <div className="rounded-xl border border-surface-border bg-surface p-6 text-center">
         <p className="font-medium">아직 연동된 환자가 없습니다.</p>
         <p className="mt-2 text-sm text-muted-foreground">환자분께 초대 코드를 받아 연동해주세요.</p>
         <Link
@@ -70,7 +70,7 @@ export default function GuardianHomePage() {
             key={patient.id}
             type="button"
             onClick={() => setSelectedId(patient.id)}
-            className={`rounded-2xl border px-5 py-3 text-left font-semibold transition ${
+            className={`rounded-xl border px-5 py-3 text-left font-semibold transition ${
               selectedId === patient.id
                 ? "border-accent bg-accent/10"
                 : "border-surface-border bg-surface hover:border-accent/50"
@@ -85,7 +85,7 @@ export default function GuardianHomePage() {
         <>
           {/* 현재 상태 + 복용약 */}
           <section className="grid grid-cols-1 gap-4 md:grid-cols-3">
-            <div className="flex flex-col justify-between rounded-2xl border border-surface-border bg-surface p-6 md:col-span-2">
+            <div className="flex flex-col justify-between rounded-xl border border-surface-border bg-surface p-6 md:col-span-2">
               <div>
                 <span className="mb-3 inline-flex items-center rounded-full bg-background px-3 py-1 text-xs font-medium text-muted-foreground">
                   현재 상태
@@ -110,7 +110,7 @@ export default function GuardianHomePage() {
 
             <Link
               href="/medications"
-              className="flex flex-col justify-between rounded-2xl bg-accent p-6 text-accent-foreground transition hover:brightness-110"
+              className="flex flex-col justify-between rounded-xl bg-accent p-6 text-accent-foreground transition hover:brightness-110"
             >
               <div className="flex items-start justify-between">
                 <span className="text-lg">💊</span>
@@ -135,7 +135,7 @@ export default function GuardianHomePage() {
             {members.length === 0 ? (
               <Link
                 href="/family"
-                className="rounded-2xl border border-dashed border-surface-border bg-surface p-6 text-center text-muted-foreground transition hover:border-accent/50"
+                className="rounded-xl border border-dashed border-surface-border bg-surface p-6 text-center text-muted-foreground transition hover:border-accent/50"
               >
                 등록된 가족이 없습니다. 눌러서 추가하세요.
               </Link>
@@ -182,7 +182,7 @@ export default function GuardianHomePage() {
                   <Link
                     key={medication.id}
                     href="/medications"
-                    className="flex items-center gap-4 rounded-2xl border border-surface-border bg-surface p-5 transition hover:border-accent/50"
+                    className="flex items-center gap-4 rounded-xl border border-surface-border bg-surface p-5 transition hover:border-accent/50"
                   >
                     <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-sky-500/20 text-lg">
                       💊

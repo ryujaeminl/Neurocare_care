@@ -58,7 +58,7 @@ export function EmergencySosCard({ event, onAcknowledged }: EmergencySosCardProp
   }
 
   return (
-    <div className="flex flex-col overflow-hidden rounded-2xl border border-surface-border bg-surface">
+    <div className="flex flex-col overflow-hidden rounded-xl border border-surface-border bg-surface">
       {/* 상단 헤더 */}
       <div
         className={`flex items-center gap-4 p-6 ${
@@ -87,7 +87,7 @@ export function EmergencySosCard({ event, onAcknowledged }: EmergencySosCardProp
               <span className="text-lg font-bold">{event.patient.name}</span>
               <span
                 className={`rounded-full px-2 py-0.5 text-xs font-medium ${
-                  isOpen ? "bg-danger-bg text-danger-foreground" : "bg-emerald-500/20 text-emerald-300"
+                  isOpen ? "bg-danger-bg text-danger-foreground" : "bg-emerald-500/20 text-emerald-700"
                 }`}
               >
                 {isOpen ? "미확인" : "확인됨"}
@@ -105,7 +105,7 @@ export function EmergencySosCard({ event, onAcknowledged }: EmergencySosCardProp
         )}
 
         {event.acknowledgedByName && (
-          <p className="mt-2 text-sm text-emerald-300">
+          <p className="mt-2 text-sm text-emerald-700">
             {event.acknowledgedByName}님이 확인했습니다
             {event.acknowledgedAt && ` (${new Date(event.acknowledgedAt).toLocaleString("ko-KR")})`}
           </p>
@@ -116,7 +116,7 @@ export function EmergencySosCard({ event, onAcknowledged }: EmergencySosCardProp
       <div className="flex flex-col gap-3 border-t border-surface-border p-6">
         <a
           href="tel:119"
-          className="flex h-14 w-full items-center justify-center gap-3 rounded-2xl bg-rose-500 text-lg font-bold text-white transition active:scale-[0.98]"
+          className="flex h-14 w-full items-center justify-center gap-3 rounded-xl bg-rose-500 text-lg font-bold text-white transition active:scale-[0.98]"
         >
           📞 119 긴급 신고
         </a>
