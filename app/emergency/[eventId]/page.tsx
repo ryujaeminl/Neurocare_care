@@ -35,12 +35,20 @@ export default function EmergencyEventPage() {
     };
   }, [params.eventId]);
 
-  if (loading) return <p className="text-muted-foreground">불러오는 중...</p>;
-  if (error || !event) return <p className="text-danger-foreground">{error ?? "이벤트를 찾을 수 없습니다."}</p>;
+  if (loading) {
+    return (
+      <div className="flex min-h-screen items-center justify-center bg-slate-700 text-xl text-white">
+        불러오는 중...
+      </div>
+    );
+  }
+  if (error || !event) {
+    return (
+      <div className="flex min-h-screen items-center justify-center bg-slate-700 px-6 text-center text-xl text-white">
+        {error ?? "이벤트를 찾을 수 없습니다."}
+      </div>
+    );
+  }
 
-  return (
-    <div className="mx-auto w-full max-w-lg">
-      <EmergencySosCard event={event} onAcknowledged={setEvent} />
-    </div>
-  );
+  return <EmergencySosCard event={event} onAcknowledged={setEvent} variant="fullscreen" />;
 }

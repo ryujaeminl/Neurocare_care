@@ -32,10 +32,14 @@ function timeAgo(iso: string): string {
 interface EmergencySosCardProps {
   event: EmergencyEventDetail;
   onAcknowledged: (event: EmergencyEventDetail) => void;
+  /** "fullscreen"은 안드로이드 전체화면 인텐트(잠금화면 위)로 열리는 단독 페이지 전용 -
+   * 방 반대편에서도 한눈에 "위급 상황"임을 알아볼 수 있게 화면 전체를 채우는 큰 글씨/고대비
+   * 디자인을 쓴다. 목록 화면(app/(guardian)/emergency/page.tsx)의 카드형은 "compact" 그대로. */
+  variant?: "compact" | "fullscreen";
 }
 
 /** 긴급 상황 확인 화면. 실제로 되는 액션만 둔다: 119 신고(진짜 tel: 링크), 최근 대화 보기, 확인 처리. */
-export function EmergencySosCard({ event, onAcknowledged }: EmergencySosCardProps) {
+export function EmergencySosCard({ event, onAcknowledged, variant = "compact" }: EmergencySosCardProps) {
   const [acking, setAcking] = useState(false);
   const isOpen = event.status === "open";
 
@@ -55,6 +59,62 @@ export function EmergencySosCard({ event, onAcknowledged }: EmergencySosCardProp
     } finally {
       setAcking(false);
     }
+  }
+
+  if (variant === "fullscreen") {
+    return (
+      <div
+        className={`flex min-h-screen flex-col text-white ${
+          isOpen ? "animate-pulse-red bg-rose-600" : "bg-slate-700"
+        }`}
+      >
+        <div className="flex flex-1 flex-col items-center justify-center gap-4 px-6 py-10 text-center">
+          <div className="text-7xl">🆘</div>
+          <h1 className="text-5xl font-extrabold leading-tight sm:text-6xl">
+            {event.patient.name} 어르신
+          </h1>
+          <p className="text-3xl font-bold sm:text-4xl">{isOpen ? "SOS 발생" : "SOS 확인됨"}</p>
+          <p className="text-lg opacity-90 sm:text-xl">
+            {TRIGGER_LABELS[event.triggerType] ?? "확인이 필요합니다"}
+          </p>
+          <p className="text-base opacity-75">{timeAgo(event.createdAt)}</p>
+          {event.detail && (
+            <div className="mt-2 max-w-md rounded-xl bg-black/20 p-4 text-base">{event.detail}</div>
+          )}
+          {event.acknowledgedByName && (
+            <p className="mt-2 text-base opacity-90">
+              {event.acknowledgedByName}님이 확인했습니다
+              {event.acknowledgedAt && ` (${new Date(event.acknowledgedAt).toLocaleString("ko-KR")})`}
+            </p>
+          )}
+        </div>
+
+        <div className="flex flex-col gap-4 p-6">
+          <a
+            href="tel:119"
+            className="flex h-20 w-full items-center justify-center gap-3 rounded-2xl bg-white text-3xl font-extrabold text-rose-600 shadow-lg transition active:scale-[0.98]"
+          >
+            📞 119 긴급 신고
+          </a>
+          {isOpen && (
+            <button
+              type="button"
+              onClick={handleAcknowledge}
+              disabled={acking}
+              className="flex h-16 w-full items-center justify-center gap-2 rounded-2xl bg-white/20 text-2xl font-bold text-white transition hover:bg-white/30 disabled:opacity-50"
+            >
+              {acking ? "처리 중..." : "✅ 확인했습니다"}
+            </button>
+          )}
+          <Link
+            href="/"
+            className="flex h-14 w-full items-center justify-center gap-2 rounded-2xl border-2 border-white/40 text-lg font-medium text-white"
+          >
+            대시보드로
+          </Link>
+        </div>
+      </div>
+    );
   }
 
   return (
