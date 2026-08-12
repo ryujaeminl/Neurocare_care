@@ -10,9 +10,11 @@ import android.util.Log
 import android.webkit.ConsoleMessage
 import android.webkit.JavascriptInterface
 import android.webkit.WebChromeClient
+import android.webkit.WebChromeClient.FileChooserParams
 import android.webkit.WebResourceError
 import android.webkit.WebResourceRequest
 import android.webkit.WebResourceResponse
+import android.webkit.ValueCallback
 import android.webkit.WebSettings
 import android.webkit.WebView
 import android.webkit.WebViewClient
@@ -40,6 +42,27 @@ class MainActivity : AppCompatActivity() {
         registerForActivityResult(ActivityResultContracts.RequestPermission()) {
             // 결과와 무관하게 웹앱은 그대로 띄운다 - 알림은 부가 기능이라 거부해도 앱 사용엔 지장 없다.
             webView.loadUrl(BuildConfig.WEBAPP_BASE_URL)
+        }
+
+    // WebView는 <input type="file"> 클릭을 onShowFileChooser로 위임한다 - 이걸 구현 안 하면
+    // 탭해도 아무 반응 없이 조용히 무시된다(사진 업로드가 드래그앤드롭에서만 되던 원인).
+    private var filePathCallback: ValueCallback<Array<Uri>>? = null
+
+    private val filePickerLauncher =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+            val data = result.data
+            val uris = if (result.resultCode == RESULT_OK && data != null) {
+                val clipData = data.clipData
+                if (clipData != null) {
+                    Array(clipData.itemCount) { i -> clipData.getItemAt(i).uri }
+                } else {
+                    data.data?.let { arrayOf(it) } ?: emptyArray()
+                }
+            } else {
+                emptyArray()
+            }
+            filePathCallback?.onReceiveValue(uris)
+            filePathCallback = null
         }
 
     /**
@@ -136,6 +159,34 @@ class MainActivity : AppCompatActivity() {
             override fun onConsoleMessage(message: ConsoleMessage): Boolean {
                 if (message.messageLevel() == ConsoleMessage.MessageLevel.ERROR) {
                     Log.e(TAG, "JS 오류: ${message.message()} (${message.sourceId()}:${message.lineNumber()})")
+                }
+                return true
+            }
+
+            override fun onShowFileChooser(
+                view: WebView?,
+                callback: ValueCallback<Array<Uri>>,
+                params: FileChooserParams?,
+            ): Boolean {
+                filePathCallback?.onReceiveValue(null)
+                filePathCallback = callback
+                // createIntent()가 <input accept>를 반영해 image/* GET_CONTENT 인텐트를
+                // 만들어준다 - 일부 기기에선 만들거나 실행하는 데 실패할 수 있어 안전하게 대체한다.
+                val intent = try {
+                    params?.createIntent()
+                } catch (e: Exception) {
+                    null
+                } ?: Intent(Intent.ACTION_GET_CONTENT).apply {
+                    type = "image/*"
+                    addCategory(Intent.CATEGORY_OPENABLE)
+                }
+                try {
+                    filePickerLauncher.launch(intent)
+                } catch (e: Exception) {
+                    Log.e(TAG, "파일 선택창을 열지 못함: ${e.message}")
+                    filePathCallback?.onReceiveValue(null)
+                    filePathCallback = null
+                    return false
                 }
                 return true
             }
