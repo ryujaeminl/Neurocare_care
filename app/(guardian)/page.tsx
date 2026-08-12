@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import type { Medication } from "@prisma/client";
+import { CalendarEventList } from "@/components/guardian/CalendarEventList";
 import { ConversationHistorySection } from "@/components/guardian/ConversationHistorySection";
 import { useLinkedPatients } from "@/hooks/useLinkedPatients";
 import { MOOD_LABELS, isMood } from "@/lib/db/types";
@@ -197,6 +198,8 @@ export default function GuardianHomePage() {
               </div>
             )}
           </section>
+
+          <CalendarEventList patientId={selectedId} />
 
           <ConversationHistorySection key={selectedId} patientId={selectedId} />
         </>
