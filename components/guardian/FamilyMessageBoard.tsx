@@ -138,7 +138,7 @@ export function FamilyMessageBoard({ patientId }: { patientId: string }) {
                 <p className="mt-0.5 text-xs text-muted-foreground">
                   {new Date(message.createdAt).toLocaleString("ko-KR")} ·{" "}
                   {message.deliveredAt ? "전달됨" : "아직 전달 전"}
-                  {message.photoUrl && (message.photoShownAt ? " · 사진 보여드림" : " · 사진 아직 안 보여줌")}
+                  {message.photoUrl && ((message as any).photoShownAt ? " · 사진 보여드림" : " · 사진 아직 안 보여줌")}
                 </p>
               </div>
               <button
