@@ -10,7 +10,7 @@ interface OpenEvent {
   patient: { name: string };
 }
 
-const POLL_MS = 20_000;
+const POLL_MS = 1_500;
 
 /**
  * 네이티브(안드로이드 앱) 전체화면 알림 브릿지. 웹뷰가 아니면(일반 브라우저) undefined라

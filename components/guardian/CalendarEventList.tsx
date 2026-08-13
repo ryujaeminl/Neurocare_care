@@ -34,8 +34,10 @@ export function CalendarEventList({ patientId }: { patientId: string }) {
       }
     }
     void load();
+    const timer = setInterval(load, 2500);
     return () => {
       cancelled = true;
+      clearInterval(timer);
     };
   }, [patientId]);
 

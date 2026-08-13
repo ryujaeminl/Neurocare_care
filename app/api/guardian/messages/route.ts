@@ -1,3 +1,6 @@
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 import { NextRequest } from "next/server";
 import { prisma } from "@/lib/db/prisma";
 import { authErrorResponse, requireGuardianAccess, requirePatientAccess } from "@/lib/auth/permissions";

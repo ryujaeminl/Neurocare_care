@@ -1,0 +1,645 @@
+INFO:httpx:HTTP Request: GET https://huggingface.co/api/models/Systran/faster-whisper-small/revision/main "HTTP/1.1 200 OK"
+INFO:     Started server process [31804]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     192.168.219.103:61790 - "GET /health HTTP/1.1" 200 OK
+INFO:     192.168.219.122:50070 - "GET /enroll/device HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:35.520
+INFO:faster_whisper:VAD filter removed 00:03.232 of audio
+INFO:     192.168.219.122:45340 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     192.168.219.103:58673 - "GET /health HTTP/1.1" 200 OK
+INFO:     192.168.219.122:38268 - "GET /enroll/device HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:13.248
+INFO:faster_whisper:VAD filter removed 00:02.528 of audio
+INFO:     192.168.219.122:39672 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 02:24.576
+INFO:faster_whisper:VAD filter removed 00:45.888 of audio
+INFO:     192.168.219.122:46062 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 01:03.168
+INFO:faster_whisper:VAD filter removed 00:01.584 of audio
+INFO:     192.168.219.122:57138 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:28.512
+INFO:faster_whisper:VAD filter removed 00:13.472 of audio
+INFO:     192.168.219.122:57138 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:44.736
+INFO:faster_whisper:VAD filter removed 00:23.456 of audio
+INFO:     192.168.219.122:56514 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:13.824
+INFO:faster_whisper:VAD filter removed 00:13.824 of audio
+INFO:     192.168.219.122:44992 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 01:46.272
+INFO:faster_whisper:VAD filter removed 00:01.536 of audio
+INFO:faster_whisper:Processing audio with duration 00:02.688
+INFO:faster_whisper:VAD filter removed 00:01.168 of audio
+INFO:     127.0.0.1:62247 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:18.528
+INFO:faster_whisper:VAD filter removed 00:10.640 of audio
+INFO:     192.168.219.122:57572 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:40.512
+INFO:faster_whisper:VAD filter removed 00:27.328 of audio
+INFO:     192.168.219.122:36710 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:27.840
+INFO:faster_whisper:VAD filter removed 00:19.616 of audio
+INFO:     192.168.219.122:39476 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:51.264
+INFO:faster_whisper:VAD filter removed 00:09.440 of audio
+INFO:     192.168.219.122:38652 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:06.912
+INFO:faster_whisper:VAD filter removed 00:04.832 of audio
+INFO:     192.168.219.122:38652 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:07.200
+INFO:faster_whisper:VAD filter removed 00:04.960 of audio
+INFO:     192.168.219.122:33952 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:04.704
+INFO:faster_whisper:VAD filter removed 00:04.704 of audio
+INFO:     192.168.219.122:33952 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:07.968
+INFO:faster_whisper:VAD filter removed 00:04.288 of audio
+INFO:     192.168.219.122:51906 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:08.736
+INFO:faster_whisper:VAD filter removed 00:06.336 of audio
+INFO:     192.168.219.122:51918 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:03.936
+INFO:faster_whisper:VAD filter removed 00:01.792 of audio
+INFO:     192.168.219.122:51918 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:05.472
+INFO:faster_whisper:VAD filter removed 00:01.360 of audio
+INFO:     192.168.219.122:51918 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:36.864
+INFO:faster_whisper:VAD filter removed 00:05.200 of audio
+INFO:     192.168.219.122:55982 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:08.064
+INFO:faster_whisper:VAD filter removed 00:01.328 of audio
+INFO:     192.168.219.122:55982 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 01:05.664
+INFO:faster_whisper:VAD filter removed 00:00.192 of audio
+INFO:     192.168.219.122:50520 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:05.568
+INFO:faster_whisper:VAD filter removed 00:05.568 of audio
+INFO:     192.168.219.122:56206 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:02.784
+INFO:faster_whisper:VAD filter removed 00:01.120 of audio
+INFO:     192.168.219.122:44060 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:04.704
+INFO:faster_whisper:VAD filter removed 00:03.712 of audio
+INFO:     192.168.219.122:43318 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:07.008
+INFO:faster_whisper:VAD filter removed 00:07.008 of audio
+INFO:     192.168.219.122:34502 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     192.168.219.103:58165 - "GET /health HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:29.760
+INFO:faster_whisper:VAD filter removed 00:00.560 of audio
+INFO:     192.168.219.122:60042 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:16.224
+INFO:faster_whisper:VAD filter removed 00:09.680 of audio
+INFO:     192.168.219.122:60042 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:04.896
+INFO:faster_whisper:VAD filter removed 00:04.896 of audio
+INFO:     192.168.219.122:60042 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:10.176
+INFO:faster_whisper:VAD filter removed 00:10.176 of audio
+INFO:     192.168.219.122:45806 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:07.296
+INFO:faster_whisper:VAD filter removed 00:07.296 of audio
+INFO:     192.168.219.122:40254 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:14.304
+INFO:faster_whisper:VAD filter removed 00:04.432 of audio
+INFO:     192.168.219.122:44904 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:16.800
+INFO:faster_whisper:VAD filter removed 00:00.016 of audio
+INFO:     192.168.219.122:37310 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:04.128
+INFO:faster_whisper:VAD filter removed 00:02.368 of audio
+INFO:     192.168.219.122:37310 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:17.280
+INFO:faster_whisper:VAD filter removed 00:08.704 of audio
+INFO:     192.168.219.122:34558 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:18.624
+INFO:faster_whisper:VAD filter removed 00:03.168 of audio
+INFO:     192.168.219.122:41784 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 02:32.256
+INFO:faster_whisper:VAD filter removed 00:02.880 of audio
+INFO:faster_whisper:Processing audio with duration 01:04.992
+INFO:faster_whisper:VAD filter removed 00:03.648 of audio
+INFO:     192.168.219.122:47390 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:02.976
+INFO:faster_whisper:VAD filter removed 00:02.112 of audio
+INFO:     192.168.219.122:39956 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:03.456
+INFO:faster_whisper:VAD filter removed 00:02.336 of audio
+INFO:     192.168.219.122:39956 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:03.168
+INFO:faster_whisper:VAD filter removed 00:03.168 of audio
+INFO:     192.168.219.122:53440 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:03.552
+INFO:faster_whisper:VAD filter removed 00:03.552 of audio
+INFO:     192.168.219.122:57222 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:04.800
+INFO:faster_whisper:VAD filter removed 00:03.872 of audio
+INFO:     192.168.219.122:57746 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:04.416
+INFO:faster_whisper:VAD filter removed 00:01.856 of audio
+INFO:     192.168.219.122:57746 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:02.784
+INFO:faster_whisper:VAD filter removed 00:02.784 of audio
+INFO:     192.168.219.122:44078 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:04.512
+INFO:faster_whisper:VAD filter removed 00:00.912 of audio
+INFO:     192.168.219.122:44090 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:04.416
+INFO:faster_whisper:VAD filter removed 00:04.416 of audio
+INFO:     192.168.219.122:44090 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:08.736
+INFO:faster_whisper:VAD filter removed 00:08.736 of audio
+INFO:     192.168.219.122:44500 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:07.200
+INFO:faster_whisper:VAD filter removed 00:07.200 of audio
+INFO:     192.168.219.122:51108 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:03.744
+INFO:faster_whisper:VAD filter removed 00:03.744 of audio
+INFO:     192.168.219.122:60256 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:05.088
+INFO:faster_whisper:VAD filter removed 00:05.088 of audio
+INFO:     192.168.219.122:60270 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:01.920
+INFO:faster_whisper:VAD filter removed 00:01.920 of audio
+INFO:     192.168.219.122:60270 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:04.896
+INFO:faster_whisper:VAD filter removed 00:04.896 of audio
+INFO:     192.168.219.122:51934 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:02.592
+INFO:faster_whisper:VAD filter removed 00:02.592 of audio
+INFO:     192.168.219.122:60410 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:02.784
+INFO:faster_whisper:VAD filter removed 00:02.784 of audio
+INFO:     192.168.219.122:60410 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:03.936
+INFO:faster_whisper:VAD filter removed 00:03.936 of audio
+INFO:     192.168.219.122:60410 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:06.240
+INFO:faster_whisper:VAD filter removed 00:06.240 of audio
+INFO:     192.168.219.122:57992 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:05.376
+INFO:faster_whisper:VAD filter removed 00:05.376 of audio
+INFO:     192.168.219.122:56624 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:04.800
+INFO:faster_whisper:VAD filter removed 00:04.800 of audio
+INFO:     192.168.219.122:53366 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:04.416
+INFO:faster_whisper:VAD filter removed 00:04.416 of audio
+INFO:     192.168.219.122:53380 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:04.608
+INFO:faster_whisper:VAD filter removed 00:04.608 of audio
+INFO:     192.168.219.122:47860 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:11.712
+INFO:faster_whisper:VAD filter removed 00:01.488 of audio
+INFO:     192.168.219.122:33038 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:10.176
+INFO:faster_whisper:VAD filter removed 00:03.344 of audio
+INFO:     192.168.219.122:45302 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:43.200
+INFO:faster_whisper:VAD filter removed 00:29.952 of audio
+INFO:     192.168.219.122:58254 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:24.384
+INFO:faster_whisper:VAD filter removed 00:01.472 of audio
+INFO:     192.168.219.122:56082 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:03.744
+INFO:faster_whisper:VAD filter removed 00:00.608 of audio
+INFO:     192.168.219.122:53332 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:07.296
+INFO:faster_whisper:VAD filter removed 00:07.296 of audio
+INFO:     192.168.219.122:41442 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:04.320
+INFO:faster_whisper:VAD filter removed 00:00.240 of audio
+INFO:     192.168.219.122:41450 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:05.376
+INFO:faster_whisper:VAD filter removed 00:00.400 of audio
+INFO:     192.168.219.122:41450 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:08.064
+INFO:faster_whisper:VAD filter removed 00:05.600 of audio
+INFO:     192.168.219.122:57030 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:03.168
+INFO:faster_whisper:VAD filter removed 00:03.168 of audio
+INFO:     192.168.219.122:57030 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     192.168.219.122:53686 - "GET /enroll/device HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49685 - "GET /enroll/cms4oefs30000mkudcc5uedvk HTTP/1.1" 200 OK
+INFO:     192.168.219.122:56366 - "GET /enroll/device HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55582 - "GET /enroll/cms4oefs30000mkudcc5uedvk HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55612 - "GET /enroll/cms4oefs30000mkudcc5uedvk HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:31.680
+INFO:faster_whisper:VAD filter removed 00:01.856 of audio
+INFO:     192.168.219.122:35058 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:22.560
+INFO:faster_whisper:VAD filter removed 00:07.136 of audio
+INFO:     192.168.219.122:57966 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:48.672
+INFO:faster_whisper:VAD filter removed 00:03.584 of audio
+INFO:     192.168.219.122:41838 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55673 - "GET /enroll/cms4oefs30000mkudcc5uedvk HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 01:21.408
+INFO:faster_whisper:VAD filter removed 00:13.568 of audio
+INFO:     192.168.219.122:42970 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:04.416
+INFO:faster_whisper:VAD filter removed 00:04.416 of audio
+INFO:     192.168.219.122:42970 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:02.208
+INFO:faster_whisper:VAD filter removed 00:02.208 of audio
+INFO:     192.168.219.122:42970 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:50.112
+INFO:faster_whisper:VAD filter removed 00:19.344 of audio
+INFO:faster_whisper:Processing audio with duration 00:13.824
+INFO:faster_whisper:VAD filter removed 00:02.784 of audio
+INFO:     192.168.219.122:59016 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:03.264
+INFO:faster_whisper:VAD filter removed 00:00.288 of audio
+INFO:     192.168.219.122:59016 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:03.648
+INFO:faster_whisper:VAD filter removed 00:01.184 of audio
+INFO:     192.168.219.122:59016 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:04.320
+INFO:faster_whisper:VAD filter removed 00:01.664 of audio
+INFO:     192.168.219.122:45226 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53861 - "GET /enroll/cms4oefs30000mkudcc5uedvk HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52470 - "GET /enroll/cms4oefs30000mkudcc5uedvk HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52470 - "GET /enroll/cms4oefs30000mkudcc5uedvk HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:07.008
+INFO:faster_whisper:VAD filter removed 00:01.472 of audio
+INFO:     192.168.219.122:60032 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:05.856
+INFO:faster_whisper:VAD filter removed 00:03.040 of audio
+INFO:     192.168.219.122:60032 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:31.008
+INFO:faster_whisper:VAD filter removed 00:21.504 of audio
+INFO:     192.168.219.122:50704 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:41.376
+INFO:faster_whisper:VAD filter removed 00:16.016 of audio
+INFO:     192.168.219.122:53216 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:11.136
+INFO:faster_whisper:VAD filter removed 00:00.336 of audio
+INFO:     192.168.219.122:53216 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:02.688
+INFO:faster_whisper:VAD filter removed 00:01.536 of audio
+INFO:     192.168.219.122:53216 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:04.800
+INFO:faster_whisper:VAD filter removed 00:02.784 of audio
+INFO:     192.168.219.122:53216 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:05.952
+INFO:faster_whisper:VAD filter removed 00:01.904 of audio
+INFO:     192.168.219.122:53216 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:09.408
+INFO:faster_whisper:VAD filter removed 00:03.168 of audio
+INFO:     192.168.219.122:40188 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:02.592
+INFO:faster_whisper:VAD filter removed 00:00.544 of audio
+INFO:     192.168.219.122:41342 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:12.000
+INFO:faster_whisper:VAD filter removed 00:00.432 of audio
+INFO:     192.168.219.122:44346 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:04.992
+INFO:faster_whisper:VAD filter removed 00:00.000 of audio
+INFO:     192.168.219.122:59324 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:06.816
+INFO:faster_whisper:VAD filter removed 00:01.024 of audio
+INFO:     192.168.219.122:36018 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:03.072
+INFO:faster_whisper:VAD filter removed 00:00.000 of audio
+INFO:     192.168.219.122:59440 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     192.168.219.103:62809 - "GET /health HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:03.552
+INFO:faster_whisper:VAD filter removed 00:00.144 of audio
+INFO:     192.168.219.122:37466 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:03.648
+INFO:faster_whisper:VAD filter removed 00:00.000 of audio
+INFO:     192.168.219.122:37466 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:15.552
+INFO:faster_whisper:VAD filter removed 00:01.520 of audio
+INFO:     192.168.219.122:51394 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:03.744
+INFO:faster_whisper:VAD filter removed 00:01.408 of audio
+INFO:     192.168.219.122:56766 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:03.360
+INFO:faster_whisper:VAD filter removed 00:00.784 of audio
+INFO:     192.168.219.122:56766 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:07.104
+INFO:faster_whisper:VAD filter removed 00:01.952 of audio
+INFO:     192.168.219.122:56766 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:06.240
+INFO:faster_whisper:VAD filter removed 00:00.560 of audio
+INFO:     192.168.219.122:49302 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:09.120
+INFO:faster_whisper:VAD filter removed 00:01.280 of audio
+INFO:     192.168.219.122:53636 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:10.848
+INFO:faster_whisper:VAD filter removed 00:02.496 of audio
+INFO:     192.168.219.122:32896 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:11.520
+INFO:faster_whisper:VAD filter removed 00:02.624 of audio
+INFO:     192.168.219.122:37052 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:05.568
+INFO:faster_whisper:VAD filter removed 00:01.216 of audio
+INFO:     192.168.219.122:37052 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:07.872
+INFO:faster_whisper:VAD filter removed 00:01.152 of audio
+INFO:     192.168.219.122:58166 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:03.552
+INFO:faster_whisper:VAD filter removed 00:00.784 of audio
+INFO:     192.168.219.122:58166 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:17.568
+INFO:faster_whisper:VAD filter removed 00:02.496 of audio
+INFO:     192.168.219.122:48438 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:23.424
+INFO:faster_whisper:VAD filter removed 00:02.720 of audio
+INFO:     192.168.219.122:48044 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:06.048
+INFO:faster_whisper:VAD filter removed 00:01.248 of audio
+INFO:     192.168.219.122:48044 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:03.072
+INFO:faster_whisper:VAD filter removed 00:00.304 of audio
+INFO:     192.168.219.122:48044 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:02.688
+INFO:faster_whisper:VAD filter removed 00:01.312 of audio
+INFO:     192.168.219.122:48044 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:02.880
+INFO:faster_whisper:VAD filter removed 00:01.312 of audio
+INFO:     192.168.219.122:60962 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:04.128
+INFO:faster_whisper:VAD filter removed 00:01.888 of audio
+INFO:     192.168.219.122:60962 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:02.688
+INFO:faster_whisper:VAD filter removed 00:01.472 of audio
+INFO:     192.168.219.122:33984 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:03.360
+INFO:faster_whisper:VAD filter removed 00:02.496 of audio
+INFO:     192.168.219.122:44912 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:04.032
+INFO:faster_whisper:VAD filter removed 00:01.008 of audio
+INFO:     192.168.219.122:49274 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:04.224
+INFO:faster_whisper:VAD filter removed 00:01.600 of audio
+INFO:     192.168.219.122:39754 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:09.408
+INFO:faster_whisper:VAD filter removed 00:02.112 of audio
+INFO:     192.168.219.122:49258 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:03.648
+INFO:faster_whisper:VAD filter removed 00:01.472 of audio
+INFO:     192.168.219.122:36374 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:11.328
+INFO:faster_whisper:VAD filter removed 00:03.536 of audio
+INFO:     192.168.219.122:50550 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:05.856
+INFO:faster_whisper:VAD filter removed 00:03.552 of audio
+INFO:     192.168.219.122:32914 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:20.736
+INFO:faster_whisper:VAD filter removed 00:05.632 of audio
+INFO:     192.168.219.122:43698 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:07.680
+INFO:faster_whisper:VAD filter removed 00:01.728 of audio
+INFO:     192.168.219.122:43698 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:07.584
+INFO:faster_whisper:VAD filter removed 00:01.392 of audio
+INFO:     192.168.219.122:43698 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:10.848
+INFO:faster_whisper:VAD filter removed 00:02.304 of audio
+INFO:     192.168.219.122:45616 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:03.552
+INFO:faster_whisper:VAD filter removed 00:00.608 of audio
+INFO:     192.168.219.122:48136 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:02.496
+INFO:faster_whisper:VAD filter removed 00:02.496 of audio
+INFO:     192.168.219.122:58290 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:02.880
+INFO:faster_whisper:VAD filter removed 00:00.336 of audio
+INFO:     192.168.219.122:34502 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:03.360
+INFO:faster_whisper:VAD filter removed 00:00.912 of audio
+INFO:     192.168.219.122:43404 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:03.456
+INFO:faster_whisper:VAD filter removed 00:00.992 of audio
+INFO:     192.168.219.122:39726 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:02.304
+INFO:faster_whisper:VAD filter removed 00:00.656 of audio
+INFO:     192.168.219.122:58514 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:03.264
+INFO:faster_whisper:VAD filter removed 00:00.000 of audio
+INFO:     192.168.219.122:58514 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:05.280
+INFO:faster_whisper:VAD filter removed 00:01.440 of audio
+INFO:     192.168.219.122:44138 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:03.360
+INFO:faster_whisper:VAD filter removed 00:00.656 of audio
+INFO:     192.168.219.122:55176 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:06.048
+INFO:faster_whisper:VAD filter removed 00:01.728 of audio
+INFO:     192.168.219.122:44600 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:02.976
+INFO:faster_whisper:VAD filter removed 00:01.280 of audio
+INFO:     192.168.219.122:57904 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:03.840
+INFO:faster_whisper:VAD filter removed 00:00.768 of audio
+INFO:     192.168.219.122:57918 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:06.432
+INFO:faster_whisper:VAD filter removed 00:01.280 of audio
+INFO:     192.168.219.122:41034 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:02.976
+INFO:faster_whisper:VAD filter removed 00:02.112 of audio
+INFO:     192.168.219.122:41016 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:03.168
+INFO:faster_whisper:VAD filter removed 00:00.704 of audio
+INFO:     192.168.219.122:37540 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:04.608
+INFO:faster_whisper:VAD filter removed 00:00.992 of audio
+INFO:     192.168.219.122:54130 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:03.552
+INFO:faster_whisper:VAD filter removed 00:01.248 of audio
+INFO:     192.168.219.122:59810 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:05.184
+INFO:faster_whisper:VAD filter removed 00:04.256 of audio
+INFO:     192.168.219.122:48986 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:10.848
+INFO:faster_whisper:VAD filter removed 00:10.848 of audio
+INFO:     192.168.219.122:49398 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:04.800
+INFO:faster_whisper:VAD filter removed 00:03.872 of audio
+INFO:     192.168.219.122:41084 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:15.936
+INFO:faster_whisper:VAD filter removed 00:15.936 of audio
+INFO:     192.168.219.122:37250 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:03.936
+INFO:faster_whisper:VAD filter removed 00:03.072 of audio
+INFO:     192.168.219.122:53614 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:16.032
+INFO:faster_whisper:VAD filter removed 00:16.032 of audio
+INFO:     192.168.219.122:53968 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:04.608
+INFO:faster_whisper:VAD filter removed 00:04.608 of audio
+INFO:     192.168.219.122:36174 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:04.128
+INFO:faster_whisper:VAD filter removed 00:03.232 of audio
+INFO:     192.168.219.122:51574 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:05.376
+INFO:faster_whisper:VAD filter removed 00:00.272 of audio
+INFO:     192.168.219.122:60638 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:03.264
+INFO:faster_whisper:VAD filter removed 00:01.216 of audio
+INFO:     192.168.219.122:60638 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:05.472
+INFO:faster_whisper:VAD filter removed 00:01.568 of audio
+INFO:     192.168.219.122:38402 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:04.128
+INFO:faster_whisper:VAD filter removed 00:01.296 of audio
+INFO:     192.168.219.122:38402 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:02.976
+INFO:faster_whisper:VAD filter removed 00:00.496 of audio
+INFO:     192.168.219.122:38402 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:10.080
+INFO:faster_whisper:VAD filter removed 00:01.120 of audio
+INFO:     192.168.219.122:51262 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:05.568
+INFO:faster_whisper:VAD filter removed 00:01.408 of audio
+INFO:     192.168.219.122:51262 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:04.128
+INFO:faster_whisper:VAD filter removed 00:01.584 of audio
+INFO:     192.168.219.122:51262 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:03.552
+INFO:faster_whisper:VAD filter removed 00:03.552 of audio
+INFO:     192.168.219.122:53748 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:12.768
+INFO:faster_whisper:VAD filter removed 00:05.568 of audio
+INFO:     192.168.219.122:56078 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:06.144
+INFO:faster_whisper:VAD filter removed 00:03.456 of audio
+INFO:     192.168.219.122:56078 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:03.168
+INFO:faster_whisper:VAD filter removed 00:01.376 of audio
+INFO:     192.168.219.122:56078 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:13.344
+INFO:faster_whisper:VAD filter removed 00:03.824 of audio
+INFO:     192.168.219.122:51342 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:05.568
+INFO:faster_whisper:VAD filter removed 00:03.168 of audio
+INFO:     192.168.219.122:51342 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:02.688
+INFO:faster_whisper:VAD filter removed 00:01.312 of audio
+INFO:     192.168.219.122:32870 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:02.784
+INFO:faster_whisper:VAD filter removed 00:01.664 of audio
+INFO:     192.168.219.122:57710 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:04.416
+INFO:faster_whisper:VAD filter removed 00:04.416 of audio
+INFO:     192.168.219.122:37496 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:09.600
+INFO:faster_whisper:VAD filter removed 00:00.880 of audio
+INFO:     192.168.219.122:56884 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:03.648
+INFO:faster_whisper:VAD filter removed 00:01.168 of audio
+INFO:     192.168.219.122:59036 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:10.560
+INFO:faster_whisper:VAD filter removed 00:01.216 of audio
+INFO:     192.168.219.122:34024 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:03.072
+INFO:faster_whisper:VAD filter removed 00:00.272 of audio
+INFO:     192.168.219.122:43878 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:04.320
+INFO:faster_whisper:VAD filter removed 00:00.144 of audio
+INFO:     192.168.219.122:34768 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:02.976
+INFO:faster_whisper:VAD filter removed 00:01.344 of audio
+INFO:     192.168.219.122:57932 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:04.032
+INFO:faster_whisper:VAD filter removed 00:00.768 of audio
+INFO:     192.168.219.122:35476 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:10.368
+INFO:faster_whisper:VAD filter removed 00:00.640 of audio
+INFO:     192.168.219.122:52794 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:08.160
+INFO:faster_whisper:VAD filter removed 00:02.080 of audio
+INFO:     192.168.219.122:40604 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:06.144
+INFO:faster_whisper:VAD filter removed 00:00.432 of audio
+INFO:     192.168.219.122:37702 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:05.760
+INFO:faster_whisper:VAD filter removed 00:00.832 of audio
+INFO:     192.168.219.122:58102 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:10.272
+INFO:faster_whisper:VAD filter removed 00:01.264 of audio
+INFO:     192.168.219.122:55416 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:02.880
+INFO:faster_whisper:VAD filter removed 00:01.056 of audio
+INFO:     192.168.219.122:60642 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:05.568
+INFO:faster_whisper:VAD filter removed 00:01.728 of audio
+INFO:     192.168.219.122:36812 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:03.648
+INFO:faster_whisper:VAD filter removed 00:01.280 of audio
+INFO:     192.168.219.122:42058 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:03.264
+INFO:faster_whisper:VAD filter removed 00:00.736 of audio
+INFO:     192.168.219.122:42058 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:02.880
+INFO:faster_whisper:VAD filter removed 00:01.120 of audio
+INFO:     192.168.219.122:54116 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:03.552
+INFO:faster_whisper:VAD filter removed 00:01.216 of audio
+INFO:     192.168.219.122:56398 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:02.496
+INFO:faster_whisper:VAD filter removed 00:00.048 of audio
+INFO:     192.168.219.122:56398 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:04.224
+INFO:faster_whisper:VAD filter removed 00:01.024 of audio
+INFO:     192.168.219.122:47820 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:04.896
+INFO:faster_whisper:VAD filter removed 00:01.072 of audio
+INFO:     192.168.219.122:60476 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     192.168.219.122:60488 - "GET /enroll/device HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:03.744
+INFO:faster_whisper:VAD filter removed 00:00.992 of audio
+INFO:     192.168.219.122:55694 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:07.296
+INFO:faster_whisper:VAD filter removed 00:00.416 of audio
+INFO:     192.168.219.122:49450 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:05.856
+INFO:faster_whisper:VAD filter removed 00:01.664 of audio
+INFO:     192.168.219.122:49450 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:08.928
+INFO:faster_whisper:VAD filter removed 00:08.928 of audio
+INFO:     192.168.219.122:58834 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     192.168.219.103:51570 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61333 - "GET /enroll/cms4oefs30000mkudcc5uedvk HTTP/1.1" 200 OK
+INFO:     192.168.219.103:52371 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64809 - "GET /enroll/cms4oefs30000mkudcc5uedvk HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:02.880
+INFO:faster_whisper:VAD filter removed 00:01.312 of audio
+INFO:     192.168.219.122:55236 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:03.072
+INFO:faster_whisper:VAD filter removed 00:01.120 of audio
+INFO:     192.168.219.122:42900 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     192.168.219.103:64546 - "GET /health HTTP/1.1" 200 OK
+INFO:     192.168.219.122:49150 - "GET /enroll/device HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:03.168
+INFO:faster_whisper:VAD filter removed 00:03.168 of audio
+INFO:     192.168.219.122:55576 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:02.880
+INFO:faster_whisper:VAD filter removed 00:01.408 of audio
+INFO:     192.168.219.122:49638 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:02.784
+INFO:faster_whisper:VAD filter removed 00:02.784 of audio
+INFO:     192.168.219.122:50520 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51319 - "GET /health HTTP/1.1" 200 OK
+INFO:     122.153.218.242:0 - "GET / HTTP/1.1" 404 Not Found
+INFO:     122.153.218.242:0 - "GET / HTTP/1.1" 404 Not Found
+INFO:     122.153.218.242:0 - "GET /health HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:04.224
+INFO:faster_whisper:VAD filter removed 00:01.152 of audio
+INFO:     44.205.23.195:0 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:03.360
+INFO:faster_whisper:VAD filter removed 00:01.216 of audio
+INFO:     44.205.23.195:0 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     122.153.218.242:0 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52406 - "GET /health HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:02.784
+INFO:faster_whisper:VAD filter removed 00:01.152 of audio
+INFO:     192.168.219.122:35350 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:faster_whisper:Processing audio with duration 00:03.936
+INFO:faster_whisper:VAD filter removed 00:03.936 of audio
+INFO:     192.168.219.122:34164 - "POST /transcribe HTTP/1.1" 200 OK
