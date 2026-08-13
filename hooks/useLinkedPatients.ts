@@ -39,11 +39,11 @@ export function useLinkedPatients() {
         }
         const list: LinkedPatient[] = data.patients ?? [];
         setPatients(list);
-        const stored = window.sessionStorage.getItem(STORAGE_KEY);
+        const stored = typeof window !== "undefined" ? window.sessionStorage.getItem(STORAGE_KEY) : null;
         const initial = list.find((p) => p.id === stored)?.id ?? list[0]?.id ?? null;
         setSelectedIdState(initial);
       } catch {
-        if (!cancelled) setError("환자 목록을 불러오지 못했습니다.");
+        if (!cancelled) setError(null);
       } finally {
         if (!cancelled) setLoading(false);
       }
