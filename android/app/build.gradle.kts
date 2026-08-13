@@ -11,8 +11,8 @@ android {
         applicationId = "com.neurocare.guardian"
         minSdk = 26
         targetSdk = 34
-        versionCode = 2
-        versionName = "1.1"
+        versionCode = 20
+        versionName = "2.20"
 
         // 배포된 Vercel 사이트(neurocare-guardian). 로컬 개발로 되돌리려면
         // 에뮬레이터 기준 10.0.2.2:3001(호스트 PC의 127.0.0.1 별칭)로 바꾼다.
