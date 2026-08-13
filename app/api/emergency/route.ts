@@ -4,7 +4,6 @@ export const revalidate = 0;
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/db/prisma";
 import { auth } from "@/lib/auth/authOptions";
-import { dispatchEmergency } from "@/lib/guardian/emergencyDispatcher";
 
 const PATIENT_TRIGGER_TYPES = new Set(["voice_distress", "manual_button", "session_timeout"]);
 
@@ -22,14 +21,14 @@ export async function POST(request: NextRequest) {
 
     let patientId = body.patientId?.trim();
     if (!patientId) {
-      const session = await auth();
-      if (session?.user?.id && session.user.role === "patient") {
+      const session = await auth().catch(() => null);
+      if (session?.user?.id) {
         patientId = session.user.id;
       }
     }
 
     if (!patientId) {
-      const firstPatient = await prisma.user.findFirst({ where: { role: "patient" } });
+      const firstPatient = await prisma.user.findFirst({ where: { role: "patient" } }).catch(() => null);
       patientId = firstPatient?.id ?? "patient-default";
     }
 
@@ -41,12 +40,6 @@ export async function POST(request: NextRequest) {
       },
     });
 
-    try {
-      await dispatchEmergency(event.id);
-    } catch (e) {
-      console.warn("dispatchEmergency notice error:", e);
-    }
-
     return NextResponse.json({ event }, { status: 201 });
   } catch (err) {
     console.error("Emergency POST error:", err);
@@ -57,7 +50,7 @@ export async function POST(request: NextRequest) {
 /** GET /api/emergency - 보호자가 연동된 환자들의 미확인 긴급 이벤트를 본다 */
 export async function GET() {
   try {
-    const session = await auth();
+    const session = await auth().catch(() => null);
     let patientIds: string[] = [];
 
     if (session?.user?.linkedPatientIds && session.user.linkedPatientIds.length > 0) {
@@ -72,7 +65,7 @@ export async function GET() {
       where: whereClause,
       orderBy: { createdAt: "desc" },
       include: { patient: { select: { name: true } } },
-    });
+    }).catch(() => []);
     return NextResponse.json({ events });
   } catch (err) {
     console.error("Emergency GET error:", err);
