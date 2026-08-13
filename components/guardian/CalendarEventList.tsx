@@ -16,25 +16,26 @@ export function CalendarEventList({ patientId }: { patientId: string }) {
   const [error, setError] = useState<string | null>(null);
   const [title, setTitle] = useState("");
   const [date, setDate] = useState("");
+  const [time, setTime] = useState("09:00");
   const [notes, setNotes] = useState("");
   const [submitting, setSubmitting] = useState(false);
 
   useEffect(() => {
     let cancelled = false;
-    async function load() {
-      setLoading(true);
+    async function load(isInitial = false) {
+      if (isInitial) setLoading(true);
       try {
         const response = await fetch(`/api/guardian/calendar-events?patientId=${patientId}`);
         const data = await response.json();
         if (!cancelled) setEvents(data.events ?? []);
       } catch {
-        if (!cancelled) setError("일정을 불러오지 못했습니다.");
+        if (!cancelled && isInitial) setError("일정을 불러오지 못했습니다.");
       } finally {
-        if (!cancelled) setLoading(false);
+        if (!cancelled && isInitial) setLoading(false);
       }
     }
-    void load();
-    const timer = setInterval(load, 2500);
+    void load(true);
+    const timer = setInterval(() => load(false), 2500);
     return () => {
       cancelled = true;
       clearInterval(timer);
@@ -46,19 +47,21 @@ export function CalendarEventList({ patientId }: { patientId: string }) {
     setSubmitting(true);
     setError(null);
     try {
+      const fullDateTime = date && time ? `${date}T${time}:00` : date;
       const response = await fetch("/api/guardian/calendar-events", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ patientId, title, date, notes: notes || null }),
+        body: JSON.stringify({ patientId, title, date: fullDateTime, notes: notes || null }),
       });
       const data = await response.json();
       if (!response.ok) {
         setError(data.error ?? "등록에 실패했습니다.");
         return;
       }
-      setEvents((prev) => [...prev, data.event].sort((a, b) => a.date.localeCompare(b.date)));
+      setEvents((prev) => [...prev, data.event].sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime()));
       setTitle("");
       setDate("");
+      setTime("09:00");
       setNotes("");
     } catch {
       setError("등록에 실패했습니다.");
@@ -95,10 +98,17 @@ export function CalendarEventList({ patientId }: { patientId: string }) {
           className="rounded-xl border border-surface-border bg-background px-3 py-2 text-sm outline-none focus:border-accent"
         />
         <input
+          type="time"
+          value={time}
+          onChange={(e) => setTime(e.target.value)}
+          required
+          className="rounded-xl border border-surface-border bg-background px-3 py-2 text-sm outline-none focus:border-accent"
+        />
+        <input
           value={notes}
           onChange={(e) => setNotes(e.target.value)}
           placeholder="메모 (선택)"
-          className="rounded-xl border border-surface-border bg-background px-3 py-2 text-sm outline-none focus:border-accent sm:w-40"
+          className="rounded-xl border border-surface-border bg-background px-3 py-2 text-sm outline-none focus:border-accent sm:w-36"
         />
         <button
           type="submit"
