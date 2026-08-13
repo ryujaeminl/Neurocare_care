@@ -50,19 +50,8 @@ export async function POST(request: NextRequest) {
 /** GET /api/emergency - 보호자가 연동된 환자들의 미확인 긴급 이벤트를 본다 */
 export async function GET() {
   try {
-    const session = await auth().catch(() => null);
-    let patientIds: string[] = [];
-
-    if (session?.user?.linkedPatientIds && session.user.linkedPatientIds.length > 0) {
-      patientIds = session.user.linkedPatientIds;
-    }
-
-    const whereClause = patientIds.length > 0
-      ? { patientId: { in: patientIds }, status: "open" }
-      : { status: "open" };
-
     const events = await prisma.emergencyEvent.findMany({
-      where: whereClause,
+      where: { status: "open" },
       orderBy: { createdAt: "desc" },
       include: { patient: { select: { name: true } } },
     }).catch(() => []);
