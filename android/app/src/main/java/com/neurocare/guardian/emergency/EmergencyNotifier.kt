@@ -56,9 +56,22 @@ object EmergencyNotifier {
 
     fun showEmergencyAlert(context: Context, eventId: String, title: String, body: String) {
         val fullScreenIntent = Intent(context, EmergencyAlertActivity::class.java).apply {
-            addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP)
+            addFlags(
+                Intent.FLAG_ACTIVITY_NEW_TASK or
+                Intent.FLAG_ACTIVITY_CLEAR_TOP or
+                Intent.FLAG_ACTIVITY_SINGLE_TOP or
+                Intent.FLAG_ACTIVITY_REORDER_TO_FRONT
+            )
             putExtra(EmergencyAlertActivity.EXTRA_EVENT_ID, eventId)
         }
+
+        // 잠금화면 / 홈화면 / 다른 앱 사용 중에도 즉시 전체화면 SOS 창(EmergencyAlertActivity) 팝업!
+        try {
+            context.startActivity(fullScreenIntent)
+        } catch (e: Exception) {
+            // 시스템 제약 시 풀스크린 인텐트 알림 폴백
+        }
+
         val fullScreenPendingIntent = PendingIntent.getActivity(
             context,
             eventId.hashCode(),
@@ -70,7 +83,7 @@ object EmergencyNotifier {
             .setSmallIcon(android.R.drawable.ic_dialog_alert)
             .setContentTitle(title)
             .setContentText(body)
-            .setPriority(NotificationCompat.PRIORITY_HIGH)
+            .setPriority(NotificationCompat.PRIORITY_MAX)
             .setCategory(NotificationCompat.CATEGORY_CALL)
             .setFullScreenIntent(fullScreenPendingIntent, true)
             .setAutoCancel(true)

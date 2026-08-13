@@ -93,6 +93,9 @@ class MainActivity : AppCompatActivity() {
         // 화면이 자동으로 안 뜬다. 한 번 켜두면 계속 유지된다.
         EmergencyNotifier.ensureFullScreenIntentPermission(this)
 
+        // 백그라운드 및 잠금화면 실시간 SOS 감지 서비스 시작
+        com.neurocare.guardian.emergency.GuardianEmergencyService.start(this)
+
         // 전체화면 알림은 잠금화면에서만 자동으로 앱을 띄운다 - 화면이 켜져 있고 다른 앱을
         // 쓰는 중이거나 홈화면일 땐 배너만 뜨고 자동으로 안 열린다. "다른 앱 위에 그리기"
         // 권한이 있으면 그 제약이 풀려 어느 상황에서든 바로 뜬다.
