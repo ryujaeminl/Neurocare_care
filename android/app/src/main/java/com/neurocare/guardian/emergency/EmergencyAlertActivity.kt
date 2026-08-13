@@ -22,6 +22,13 @@ class EmergencyAlertActivity : ComponentActivity() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             getSystemService(KeyguardManager::class.java)?.requestDismissKeyguard(this, null)
         }
+        @Suppress("DEPRECATION")
+        window.addFlags(
+            android.view.WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED or
+            android.view.WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD or
+            android.view.WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON or
+            android.view.WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON
+        )
 
         val eventId = intent.getStringExtra(EXTRA_EVENT_ID)
         val webView = WebView(this).apply { settings.javaScriptEnabled = true }

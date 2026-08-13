@@ -65,19 +65,21 @@ object EmergencyNotifier {
             putExtra(EmergencyAlertActivity.EXTRA_EVENT_ID, eventId)
         }
 
-        // 잠금화면 / 홈화면 / 다른 앱 사용 중에도 즉시 전체화면 SOS 창(EmergencyAlertActivity) 팝업!
-        try {
-            context.startActivity(fullScreenIntent)
-        } catch (e: Exception) {
-            // 시스템 제약 시 풀스크린 인텐트 알림 폴백
-        }
-
         val fullScreenPendingIntent = PendingIntent.getActivity(
             context,
             eventId.hashCode(),
             fullScreenIntent,
             PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE,
         )
+
+        // 클릭하지 않아도 즉시 전체화면 SOS 창이 열리도록 PendingIntent 및 startActivity를 직행 발사!
+        try {
+            fullScreenPendingIntent.send()
+        } catch (e: Exception) {
+            try {
+                context.startActivity(fullScreenIntent)
+            } catch (_: Exception) {}
+        }
 
         val notification = NotificationCompat.Builder(context, CHANNEL_ID)
             .setSmallIcon(android.R.drawable.ic_dialog_alert)
